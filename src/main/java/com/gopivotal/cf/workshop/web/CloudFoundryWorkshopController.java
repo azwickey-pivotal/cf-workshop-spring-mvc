@@ -3,6 +3,7 @@ package com.gopivotal.cf.workshop.web;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -117,6 +118,40 @@ public class CloudFoundryWorkshopController {
 		logger.warn("*** The system is shutting down. ***");
 		System.exit(-1);
 		
+	}
+	
+	/**
+	 * Action to place memory load on system
+	 */
+	@RequestMapping(value = "/mem", method = RequestMethod.GET)
+	public String memory(@RequestParam(required=true, value="value") Long size) {
+		
+		size = size * 1024;
+		
+		//allocate specified memory in jvm
+		char[] chars = new char[(size.intValue()/2)]; //divide by 2 since a char is 2 bytes
+		Arrays.fill(chars, 'a');
+		logger.info("Consumed " + size + "kb");
+		return "index";
+	}
+	
+	/**
+	 * Action to place cpu load on system
+	 */
+	@RequestMapping(value = "/cpu", method = RequestMethod.GET)
+	public String cpu(@RequestParam(required=true, value="value") Long time) throws Exception{
+
+		StringBuilder sb = new StringBuilder("abcdefghijklmnopqrstuvwxyz");
+		
+		//allocate consume CPU for specified time
+		long start = System.currentTimeMillis();
+		while((System.currentTimeMillis() - start) < time) {
+			sb.reverse();
+			Thread.sleep(0,2);
+		}
+		logger.info("Consumed CPU for " + time + " millis");
+		
+		return "index";
 	}
 
 }

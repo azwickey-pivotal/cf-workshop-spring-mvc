@@ -1,7 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!doctype html>
-<%@ page session="false" %>
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
@@ -30,6 +29,9 @@
       <div class="large-12 columns">
         <h3>Welcome to Pivotal CF</h3>
         <hr/>
+      </div>
+      <div class="large-12 columns">
+        <img alt="Image" width="200" height="200" src="resources/image.jpg">
       </div>
     </div>
 
