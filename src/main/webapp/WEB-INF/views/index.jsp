@@ -30,9 +30,11 @@
         <h3>Welcome to Pivotal CF</h3>
         <hr/>
       </div>
+      <!-- 
       <div class="large-12 columns">
-        <img alt="Image" width="200" height="200" src="resources/image.jpg">
-      </div>
+        <img alt="Image" src="resources/img/image.jpg" width="300" height="300">
+        <hr/>
+      </div>  -->
     </div>
 
     <div class="row">
