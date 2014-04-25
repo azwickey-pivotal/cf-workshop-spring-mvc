@@ -1,14 +1,6 @@
----
 applications:
-- name: cf-workshop-spring-mvc
+- name: workshop
   memory: 512M
   instances: 1
-  host: cf-workshop-spring-mvc-${random-word}
-  domain: cfapps.io
+  host: workshop
   path: ./target/cf-workshop-spring-mvc-0.1.war
-  services:
-    cf-workshop-db:
-      label: elephantsql
-      provider: elephantsql
-      version: n/a
-      plan: turtle
