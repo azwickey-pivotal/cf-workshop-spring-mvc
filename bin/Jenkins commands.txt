@@ -2,4 +2,4 @@ CF Commands to Build...
 
 #!/bin/bash
 $WORKSPACE/bin/cf login -a api.cloudfoundry.dyndns.org -u azwickey -p p1v0tal -o pivotal -s staging --skip-ssl-validation
-$WORKSPACE/bin/cf push workshop-staging -p $WORKSPACE/target/cf-workshop-spring-mvc-0.1.war -n workshop-staging -i 3
+$WORKSPACE/bin/cf push -f $WORKSPACE/manifest-staging.yml
