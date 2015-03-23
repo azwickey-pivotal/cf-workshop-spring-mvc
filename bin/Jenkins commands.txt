@@ -3,3 +3,8 @@ CF Commands to Build...
 #!/bin/bash
 $WORKSPACE/bin/cf login -a api.cloudfoundry.dyndns.org -u azwickey -p p1v0tal -o pivotal -s staging --skip-ssl-validation
 $WORKSPACE/bin/cf push -f $WORKSPACE/manifest-staging.yml
+
+ab -v 2 -n 50000 -c 25 http://workshop-v1.cloudfoundry.dyndns.org/cpu?value=3000
+ab -v 2 -n 50000 -c 25 http://workshop.cloudfoundry.dyndns.org/cpu?value=3000 | grep "Response code not 2xx"
+
+cf map-route workshop-v2 cloudfoundry.dyndns.org -n workshop-int
