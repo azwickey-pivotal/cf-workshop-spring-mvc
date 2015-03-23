@@ -36,6 +36,7 @@
         <table>
           <thead>
             <tr>
+                <th> </th>
               <th>First Name</th>
               <th>Last Name</th>
               <th>Address</th>
@@ -49,14 +50,15 @@
           <tbody>
             <c:forEach items="${attendees}" var="attendee">
             <tr>
-              <td><a href="sessions?attendeeId=${attendee.id}">${attendee.firstName}</a></td>
-              <td>${attendee.lastName}</td>
-              <td>${attendee.address}</td>
-              <td>${attendee.city}</td>
-              <td>${attendee.state}</td>
-              <td>${attendee.zipCode}</td>
-              <td>${attendee.phoneNumber}</td>
-              <td>${attendee.emailAddress}</td>
+                <td><a href="delete?attendeeId=${attendee.id}"><img alt="Delete" src="resources/img/delete.jpeg" width="20" height="20"></a></td>
+                <td><a href="sessions?attendeeId=${attendee.id}">${attendee.firstName}</a></td>
+                <td>${attendee.lastName}</td>
+                <td>${attendee.address}</td>
+                <td>${attendee.city}</td>
+                <td>${attendee.state}</td>
+                <td>${attendee.zipCode}</td>
+                <td>${attendee.phoneNumber}</td>
+                <td>${attendee.emailAddress}</td>
             </tr>
             </c:forEach>
            </tbody>

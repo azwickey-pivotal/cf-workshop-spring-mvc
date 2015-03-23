@@ -89,6 +89,15 @@ public class CloudFoundryWorkshopController {
 		model.addAttribute("attendees", attendees);
 		return "attendees";
 	}
+
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    public String attendees(@RequestParam("attendeeId") Long attendeeId, Model model) {
+
+        attendeeRepository.delete(attendeeId);
+        Iterable<Attendee> attendees = attendeeRepository.findAll();
+        model.addAttribute("attendees", attendees);
+        return "attendees";
+    }
 	
 	/**
 	 * Action to get a list of all of the sessions for the specified attendee.
