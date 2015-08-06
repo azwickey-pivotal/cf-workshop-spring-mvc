@@ -9,12 +9,12 @@ import java.util.List;
 import java.util.Map;
 
 import org.cloudfoundry.org.codehaus.jackson.JsonParseException;
-import org.cloudfoundry.org.codehaus.jackson.impl.JsonReadContext;
 import org.cloudfoundry.org.codehaus.jackson.map.JsonMappingException;
 import org.cloudfoundry.org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +25,7 @@ import com.gopivotal.cf.workshop.entity.Attendee;
 import com.gopivotal.cf.workshop.entity.Session;
 import com.gopivotal.cf.workshop.repository.AttendeeRepository;
 import com.gopivotal.cf.workshop.repository.SessionRepository;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * Controller for the Cloud Foundry workshop - Spring MVC version.
@@ -70,7 +71,6 @@ public class CloudFoundryWorkshopController {
 		
 		String vcapServices = System.getenv("VCAP_SERVICES");
 		model.addAttribute("vcapServices", vcapServices);
-		
 		logger.info("Current date and time = [{}], port = [{}].", serverTime, port);
 
 		return "index";
